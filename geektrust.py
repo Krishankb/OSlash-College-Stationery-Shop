@@ -16,9 +16,10 @@ def outPrint():
     totalValue = 0
     discountTotal = 0
     if purchase["TotalPrice"] <=999:
-        print("TOTAL_DISCOUNT",0)
+        print("TOTAL_DISCOUNT {:0.2f}".format(0))
         am = taxBill(purchase["TotalPrice"])
-        print("TOTAL_AMOUNT_TO_PAY",round(am, 2))
+        print("TOTAL_AMOUNT_TO_PAY {:0.2f}".format(am))
+
     elif purchase["TotalPrice"] >= 1000 and purchase["TotalPrice"] <=2999:
         for keys in purchase:
             if keys != "TotalPrice":
@@ -29,9 +30,9 @@ def outPrint():
         for keys in purchase:
             if keys == "TotalPrice":
                 tfvalue = totalValue - discountTotal
-                print("TOTAL_DISCOUNT",round(discountTotal, 2))
+                print("TOTAL_DISCOUNT {:0.2f}".format(discountTotal))
                 am = taxBill(tfvalue)
-                print("TOTAL_AMOUNT_TO_PAY",round(am, 2))
+                print("TOTAL_AMOUNT_TO_PAY {:0.2f}".format(am))
 
                
     elif  purchase["TotalPrice"] >=3000:
@@ -48,9 +49,9 @@ def outPrint():
                 disTotal = discountTotal + discountValue
                 finaleValue = tfvalue - discountValue
 
-                print("TOTAL_DISCOUNT",round(disTotal, 2))
+                print("TOTAL_DISCOUNT {:0.2f}".format(disTotal))
                 am = taxBill(finaleValue)
-                print("TOTAL_AMOUNT_TO_PAY",round(am, 2))
+                print("TOTAL_AMOUNT_TO_PAY {:0.2f}".format(am))
 
 with open("textFiles/input1.txt",'r') as data_file:
     for line in data_file:
