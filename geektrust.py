@@ -1,11 +1,12 @@
+from sys import argv
+
 #price list
 priceList = {"TSHIRT" : (1000,0.10),"JACKET" : (2000,0.05),"CAP" : (500,0.20),
             "NOTEBOOK" : (200,0.20),"PENS" : (300,0.10),"MARKERS" : (500,0.05)}
 
 purchase = {}
 
-cartValue = 0
-cartFinalValue = 0
+
 
 def taxBill(amount):
     amountFinal = amount * 0.10
@@ -53,8 +54,15 @@ def outPrint():
                 am = taxBill(finaleValue)
                 print("TOTAL_AMOUNT_TO_PAY {:0.2f}".format(am))
 
-with open("textFiles/input1.txt",'r') as data_file:
-    for line in data_file:
+def main():
+    # Sample code to read inputs from the file
+    cartValue = 0
+    if len(argv) != 2:
+        raise Exception("File path not entered")
+    file_path = argv[1]
+    f = open(file_path, 'r')
+    lines = f.readlines()
+    for line in lines:
         data = line.split()
         if data[0] == "ADD_ITEM":
             if data[1] == "TSHIRT" or data[1] == "JACKET" or data[1] == "CAP":
@@ -77,6 +85,6 @@ with open("textFiles/input1.txt",'r') as data_file:
             
         elif data[0] == "PRINT_BILL":
             outPrint()
-
     
-    
+if __name__ == "__main__":
+    main()
