@@ -3,8 +3,8 @@ This project takes input as text file and Generates the Bill with discount and t
 
 
 Method to Run:
--Download the main and textFiles folder
-- python3 main.py
+- Download the geektrust.py and sample_input folder
+- type the following into command line interface "python3 geektrust.py sample_input/input1.txt"
 
 
 Working Screenshot:
